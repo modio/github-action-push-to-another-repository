@@ -6,6 +6,7 @@ set -u  # script fails if trying to access to an undefined variable
 echo "[+] Action start"
 SOURCE_BEFORE_DIRECTORY="${1}"
 SOURCE_DIRECTORY="${2}"
+FILE_TO_IGNORE="refdocs.mdx"
 DESTINATION_GITHUB_USERNAME="${3}"
 DESTINATION_REPOSITORY_NAME="${4}"
 GITHUB_SERVER="${5}"
@@ -162,6 +163,7 @@ fi
 
 echo "[+] Adding git commit"
 git add .
+git reset HEAD $FILE_TO_IGNORE
 
 echo "[+] git status:"
 git status
